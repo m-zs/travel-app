@@ -10,8 +10,10 @@
     "lint:fix": "eslint . --fix --max-warnings 0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
     "test": "vitest --coverage --passWithNoTests",
     "test:run": "vitest run --coverage --passWithNoTests",
+    "check": "npm run lint && npm run format:check && npm run typecheck && npm run test:run && npm run build",
     "prepare": "husky"
   },
   "dependencies": {
@@ -49,7 +51,7 @@
     "*.{js,jsx,ts,tsx,mjs}": [
       "eslint --fix --max-warnings 0",
       "prettier --write",
-      "vitest related --coverage --passWithNoTests"
+      "vitest related --run --passWithNoTests"
     ],
     "*.{json,css,md,yml,yaml}": "prettier --write"
   }
