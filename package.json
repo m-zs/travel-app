@@ -37,11 +37,20 @@
     "eslint-plugin-simple-import-sort": "^13.0.0",
     "husky": "^9.1.7",
     "jsdom": "^29.1.1",
+    "lint-staged": "^16.4.0",
     "prettier": "^3.8.5",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "tailwindcss": "^4",
     "typescript": "^5",
     "typescript-eslint": "^8.62.0",
     "vitest": "^4.1.9"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs}": [
+      "eslint --fix --max-warnings 0",
+      "prettier --write",
+      "vitest related --coverage --passWithNoTests"
+    ],
+    "*.{json,css,md,yml,yaml}": "prettier --write"
   }
 }
