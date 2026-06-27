@@ -1,0 +1,25 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+          ignore:
+            - node_modules/
+            - .next/
+            - coverage/
+            - playwright-report/
+            - test-results/
+            - .git/
+        - action: rebuild
+          path: package.json
+        - action: rebuild
+          path: package-lock.json

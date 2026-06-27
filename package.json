@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:docker": "next dev --hostname 0.0.0.0 --webpack",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings 0",
@@ -15,6 +16,10 @@
     "test:run": "vitest run --coverage --passWithNoTests",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
+    "docker:build": "docker build -t travel-app .",
+    "docker:up": "docker compose up --build",
+    "docker:dev": "docker compose -f docker-compose.dev.yml up --build --watch",
+    "docker:dev:down": "docker compose -f docker-compose.dev.yml down",
     "check": "npm run lint && npm run format:check && npm run typecheck && npm run test:run && npm run build",
     "prepare": "husky"
   },
