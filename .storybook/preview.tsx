@@ -1,8 +1,30 @@
 import "../app/globals.css";
 
 import type { Preview } from "@storybook/nextjs-vite";
+import { Lato, Montserrat } from "next/font/google";
+
+const lato = Lato({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["300", "400", "700"],
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  weight: ["300", "400", "600", "700"],
+});
 
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <div
+        className={`${lato.variable} ${montserrat.variable} font-sans antialiased`}
+      >
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     controls: {
       matchers: {
