@@ -1,4 +1,4 @@
-name: Lint, Test, Format
+name: CI
 
 on:
   pull_request:
@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -30,5 +32,14 @@ jobs:
       - name: Format check
         run: npm run format:check
 
+      - name: Typecheck
+        run: npm run typecheck
+
       - name: Test
         run: npm run test:run
+
+      - name: Build
+        run: npm run build
+
+      - name: Validate commit messages
+        run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
