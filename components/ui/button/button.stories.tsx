@@ -50,10 +50,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {};
 
-export const Outline: Story = {
-  args: { variant: "outline" },
-};
-
 export const Secondary: Story = {
   args: { variant: "secondary" },
 };
@@ -115,11 +111,15 @@ export const AllVariants: Story = {
   render: () => (
     <div className="flex flex-wrap gap-2">
       <Button variant="default">Default</Button>
-      <Button variant="outline">Outline</Button>
       <Button variant="secondary">Secondary</Button>
       <Button variant="ghost">Ghost</Button>
       <Button variant="destructive">Destructive</Button>
       <Button variant="link">Link</Button>
+      <Button size="sm">Small</Button>
+      <Button size="lg">Large</Button>
+      <Button size="icon">
+        <ArrowRight />
+      </Button>
     </div>
   ),
 };
