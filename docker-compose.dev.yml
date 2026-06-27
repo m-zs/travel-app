@@ -7,6 +7,14 @@ services:
       - "3000:3000"
     env_file:
       - .env
+    environment:
+      DOCKER_DEV: "true"
+      WATCHPACK_POLLING: "true"
+      WATCHPACK_POLLING_INTERVAL: "1000"
+      CHOKIDAR_USEPOLLING: "true"
+      CHOKIDAR_INTERVAL: "1000"
+      WDS_SOCKET_HOST: 127.0.0.1
+      WDS_SOCKET_PORT: "3000"
     develop:
       watch:
         - action: sync
