@@ -4,8 +4,8 @@ import { describe, expect, it, vi } from "vitest";
 import RootLayout from "./layout";
 
 vi.mock("next/font/google", () => ({
-  Geist: () => ({ variable: "--font-geist-sans" }),
-  Geist_Mono: () => ({ variable: "--font-geist-mono" }),
+  Lato: () => ({ variable: "--font-sans" }),
+  Montserrat: () => ({ variable: "--font-heading" }),
 }));
 
 describe("RootLayout", () => {
