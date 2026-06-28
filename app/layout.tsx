@@ -3,6 +3,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Lato, Montserrat } from "next/font/google";
 
+import { Navbar } from "@/src/components/navbar/navbar";
+
 const lato = Lato({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -30,7 +32,10 @@ export default function RootLayout({
       lang="en"
       className={`${lato.variable} ${montserrat.variable} h-full font-sans antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
