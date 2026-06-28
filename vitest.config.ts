@@ -18,6 +18,7 @@ export default defineConfig({
         "**/*.setup.ts",
         "**/*.test.{ts,tsx}",
         "**/*.stories.{js,jsx,ts,tsx}",
+        "**/index.ts",
         ".next/**",
         ".storybook/**",
         "stories/**",
